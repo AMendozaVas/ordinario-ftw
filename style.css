@@ -209,3 +209,24 @@ th {
 .moto-specs strong {
     color: #fff;
 }
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; 
+        text-align: center;
+        gap: 15px;
+    }
+    
+    nav ul li {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+    
+    .brand-grid, .moto-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    main {
+        padding: 0 15px;
+    }
+}

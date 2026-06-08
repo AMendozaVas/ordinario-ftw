@@ -34,7 +34,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             const contenedor = document.getElementById('contenedor-motos');
             
-            // Pon aquí el nombre exacto de la marca que quieres filtrar en esta página
             const marcaFiltro = "Kawasaki"; 
 
             fetch('inventario.xml')
@@ -53,7 +52,6 @@
                             const motor = motos[i].getElementsByTagName('motor')[0].textContent;
                             const velocidad = motos[i].getElementsByTagName('top_speed')[0].textContent;
 
-                            // Generador de la tarjeta HTML (Nota el atributo alt para tu rúbrica)
                             contenedor.innerHTML += `
                                 <div class="moto-card">
                                     <img src="img/motos/${id}.jpg" alt="Fotografía de la motocicleta ${marca} ${modelo}">

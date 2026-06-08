@@ -192,6 +192,17 @@
         <descripcion>El renacimiento de una leyenda americana centenaria, combinando una silueta baja y clásica con un motor cruiser moderno de alto desempeño.</descripcion>
     </motocicleta>
 
+    <motocicleta id="i2">
+        <marca>Indian</marca>
+        <modelo>FTR</modelo>
+        <anio>2024</anio>
+        <tipo>Naked Deportiva</tipo>
+        <motor>1,203 cc (V-Twin)</motor>
+        <top_speed>217 km/h</top_speed>
+        <medio>Vida Real / Historia</medio>
+        <descripcion>Nació directamente como un homenaje de calle a la exitosa FTR 750, la moto que dominó las competencias de flat track en Estados Unidos. Combina la estética musculosa de una "naked streetfighter" con una entrega de potencia salvaje.</descripcion>
+    </motocicleta>
+
     <motocicleta id="mh1">
         <marca>Bajaj</marca>
         <modelo>Pulsar RS200</modelo>

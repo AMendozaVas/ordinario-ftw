@@ -84,7 +84,7 @@
                         const marca = motos[i].getElementsByTagName('marca')[0].textContent;
                         const tipo = motos[i].getElementsByTagName('tipo')[0].textContent;
                         
-                        // Lógica de doble filtro (Incluye validación parcial para los tipos)
+                        //doble filtro
                         const coincideMarca = (marcaSel === "todas" || marca === marcaSel);
                         const coincideTipo = (tipoSel === "todos" || tipo.toLowerCase().includes(tipoSel.toLowerCase()));
 

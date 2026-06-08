@@ -33,27 +33,41 @@
     </main>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const u = document.getElementById('username').value;
-            const p = document.getElementById('password').value;
-            const msj = document.getElementById('mensaje');
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const u = document.getElementById('username').value;
+        const p = document.getElementById('password').value;
+        const msj = document.getElementById('mensaje');
 
-            fetch('usuarios.xml').then(res => res.text()).then(data => {
+        fetch('usuarios.xml')
+            .then(res => res.text())
+            .then(data => {
                 const xmlDoc = new DOMParser().parseFromString(data, "text/xml");
                 const usuarios = xmlDoc.getElementsByTagName('usuario');
                 let valido = false;
+                
                 for (let i = 0; i < usuarios.length; i++) {
                     if (u === usuarios[i].getElementsByTagName('username')[0].textContent && 
                         p === usuarios[i].getElementsByTagName('password')[0].textContent) {
-                        valido = true; break;
+                        valido = true; 
+                        break;
                     }
                 }
-                msj.textContent = valido ? "¡Acceso concedido! Bienvenido a MotoZine Alpha." : "Error: Credenciales inválidas.";
-                msj.style.color = valido ? "green" : "red";
+
+                if (valido) {
+                    msj.textContent = "¡Acceso concedido! Redirigiendo al catálogo...";
+                    msj.style.color = "green";
+                    
+                    setTimeout(() => {
+                        window.location.href = "catalogo.html";
+                    }, 1500);
+                } else {
+                    msj.textContent = "Error: Credenciales inválidas.";
+                    msj.style.color = "red";
+                }
             });
-        });
-    </script>
+    });
+</script>
 
     <footer>
     <p>Proyecto Ordinario 2026 | MotoZine Alpha</p>

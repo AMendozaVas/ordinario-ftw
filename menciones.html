@@ -8,43 +8,110 @@
 <body>
 
     <header>
-    <div class="logo">
-        <h1>MotoZine</h1>
-        <p>Alpha</p>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">INICIO</a></li>
-            <li><a href="marcas.html">MARCAS</a></li>
-            <li><a href="catalogo.html">CATÁLOGO</a></li>
-            <li><a href="login.html">ACCESO</a></li>
-            <li><a href="documentacion.html">DOCUMENTACIÓN</a></li>
-        </ul>
-    </nav>
+        <div class="logo">
+            <h1>MotoZine</h1>
+            <p>Alpha</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="marcas.html">MARCAS</a></li>
+                <li><a href="catalogo.html">CATÁLOGO</a></li>
+                <li><a href="login.html">ACCESO</a></li>
+                <li><a href="documentacion.html">DOCUMENTACIÓN</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <article>
-            <h2>Menciones Honoríficas: Las Reinas de México</h2>
-            <p>Aunque no tengan el legado centenario de las grandes firmas mundiales, estas marcas merecen un lugar especial. Han democratizado el motociclismo en México y Latinoamérica, ganándose el amor (y a veces el odio) de miles de bikers todos los días.</p>
-            
+        <h2>Menciones Honorífica</h2>
+        <p>Aunque no cuenten con el legado centenario de las casas europeas o americanas, estas firmas dominan el entorno urbano de México y Latinoamérica. Han transformado la movilidad trabajadora y urbana a precios accesibles.</p>
+
+        <section style="margin-top: 40px;">
             <h3>Italika</h3>
-            <p>El gigante mexicano que motorizó al país. Amadas por su accesibilidad y refacciones económicas, son indiscutiblemente las reinas del volumen en las calles y la principal herramienta de trabajo y transporte para millones.</p>
+            <p>El gigante del motor en México. Con modelos diseñados para el trabajo duro y el transporte diario confiable, se ha convertido en la fuerza motriz del comercio urbano mexicano gracias a su accesibilidad absoluta de mantenimiento.</p>
+            
+            <div id="motos-italika" class="moto-grid"></div>
+        </section>
 
+        <section style="margin-top: 40px;">
             <h3>Bajaj</h3>
-            <p>La marca india que demostró que se puede tener buena tecnología a bajo costo. Modelos como la familia Pulsar se ganaron un estatus de culto en México gracias a innovaciones como su sistema de triple bujía y su estilo deportivo urbano.</p>
+            <p>Ingeniería de la India que redefinió el mercado global de baja y mediana cilindrada. Famosa por introducir tecnologías avanzadas como el sistema de encendido digital por triple bujía a precios sumamente competitivos.</p>
+            
+            <div id="motos-bajaj" class="moto-grid"></div>
+        </section>
 
-            <h3>CFMoto</h3>
-            <p>La revelación asiática que está cambiando las reglas del juego. CFMoto ha roto los prejuicios ofreciendo motocicletas de mediana y alta cilindrada con diseños espectaculares y componentes premium a precios sumamente competitivos.</p>
+        <section style="margin-top: 40px;">
+            <h3>CFMOTO</h3>
+            <p>La revelación asiática de la era moderna. Ha roto paradigmas en los últimos años ofreciendo componentes de marcas premium (como frenos Brembo/J.Juan o suspensiones KYB) y diseños radicales para competir de tú a tú con las grandes marcas mundiales.</p>
+            
+            <div id="motos-cfmoto" class="moto-grid"></div>
+        </section>
 
-
-        </article>
+        <section style="margin-top: 50px; border-top: 2px dashed #444; padding-top: 30px;">
+            <h3>El Ícono de la Cultura Pop: La Súper Moto de Kaneda</h3>
+            <p style="font-style: italic; color: #aaa; margin-bottom: 20px;">
+                <strong>Origen de la máquina:</strong> Concebida originalmente en el manga y largometraje de culto <em>Akira (1988)</em> de Katsuhiro Otomo, la icónica motocicleta de Shotaro Kaneda es el pilar estético del movimiento cyberpunk. En la ficción, se describe como una motocicleta de chasis cruiser modificado con un generador superconductor híbrido capaz de entregar un torque devastador a ambas ruedas, contando además con frenos computarizados antibloqueo y un display digital avanzado que inspiró al diseño de las motocicletas urbanas del siglo XXI.
+            </p>
+            
+            <div id="moto-akira" class="moto-grid"></div>
+        </section>
     </main>
 
     <footer>
-        <p>Proyecto Ordinario 2026 - Fundamentos de Tecnologías Web</p>
-        <p>Versión Alpha 0.4</p>
+        <p>Proyecto Ordinario 2026 | MotoZine Alpha</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const gridItalika = document.getElementById('motos-italika');
+            const gridBajaj = document.getElementById('motos-bajaj');
+            const gridCfmoto = document.getElementById('motos-cfmoto');
+            const gridAkira = document.getElementById('moto-akira');
+
+            fetch('inventario.xml')
+                .then(res => res.text())
+                .then(xmlData => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlData, "text/xml");
+                    const motos = xmlDoc.getElementsByTagName('motocicleta');
+
+                    for (let i = 0; i < motos.length; i++) {
+                        const id = motos[i].getAttribute('id');
+                        const marca = motos[i].getElementsByTagName('marca')[0].textContent;
+                        const modelo = motos[i].getElementsByTagName('modelo')[0].textContent;
+                        const desc = motos[i].getElementsByTagName('descripcion')[0].textContent;
+                        const motor = motos[i].getElementsByTagName('motor')[0].textContent;
+                        const velocidad = motos[i].getElementsByTagName('top_speed')[0].textContent;
+
+                        const tarjetaHtml = `
+                            <div class="moto-card">
+                                <img src="img/motos/${id}.jpg" alt="Fotografía de la motocicleta ${marca} ${modelo}">
+                                <h3>${modelo}</h3>
+                                <p>${desc}</p>
+                                <div class="moto-specs">
+                                    <strong>Motor:</strong> ${motor} <br>
+                                    <strong>Velocidad Máx:</strong> ${velocidad}
+                                </div>
+                            </div>
+                        `;
+
+                        if (id === "mh7") {
+
+                            gridAkira.innerHTML += tarjetaHtml;
+                        } else if (marca.toLowerCase() === "italika") {
+                            gridItalika.innerHTML += tarjetaHtml;
+                        } else if (marca.toLowerCase() === "bajaj") {
+                            gridBajaj.innerHTML += tarjetaHtml;
+                        } else if (marca.toLowerCase() === "cfmoto") {
+                            gridCfmoto.innerHTML += tarjetaHtml;
+                        }
+                    }
+                })
+                .catch(err => {
+                    console.error("Error al procesar el inventario de menciones:", err);
+                });
+        });
+    </script>
 </body>
 </html>

@@ -24,11 +24,50 @@
     </header>
 
     <main>
-        <article>
-            <h2>Yamaha</h2>
-            <p>Yamaha, esta distinguida marca japonesa destaca por su espíritu de competencia en MotoGP y su innovación en diseño, entregando motores con un sonido y rendimiento espectaculares como las famosas series R1 y R6.</p>
-        </article>
+        <h2>Yamaha</h2>
+        <p>Yamaha, esta distinguida marca japonesa destaca por su espíritu de competencia en MotoGP y su innovación en diseño, entregando motores con un sonido y rendimiento espectaculares como las famosas series R1 y R6.</p>
+
+        <div id="contenedor-motos" class="moto-grid"></div>
     </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const contenedor = document.getElementById('contenedor-motos');
+        
+        const marcaFiltro = "Yamaha"; 
+
+        fetch('inventario.xml')
+            .then(res => res.text())
+            .then(xml => {
+                const xmlDoc = new DOMParser().parseFromString(xml, "text/xml");
+                const motos = xmlDoc.getElementsByTagName('motocicleta');
+
+                for (let i = 0; i < motos.length; i++) {
+                    const marca = motos[i].getElementsByTagName('marca')[0].textContent;
+                    
+                    if (marca === marcaFiltro) {
+                        const id = motos[i].getAttribute('id');
+                        const modelo = motos[i].getElementsByTagName('modelo')[0].textContent;
+                        const desc = motos[i].getElementsByTagName('descripcion')[0].textContent;
+                        const motor = motos[i].getElementsByTagName('motor')[0].textContent;
+                        const velocidad = motos[i].getElementsByTagName('top_speed')[0].textContent;
+
+                        contenedor.innerHTML += `
+                            <div class="moto-card">
+                                <img src="img/motos/${id}.jpg" alt="Fotografía de la motocicleta ${marca} ${modelo}">
+                                <h3>${modelo}</h3>
+                                <p>${desc}</p>
+                                <div class="moto-specs">
+                                    <strong>Motor:</strong> ${motor} <br>
+                                    <strong>Velocidad Máx:</strong> ${velocidad}
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+            });
+    });
+</script>
 
     <footer>
         <p>Proyecto Ordinario 2026 - Fundamentos de Tecnologías Web</p>
