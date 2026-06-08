@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE inventario [
+    <!ELEMENT inventario (motocicleta+)>
+    <!ELEMENT motocicleta (marca, modelo, anio, tipo, motor, top_speed, medio, descripcion)>
+    <!ATTLIST motocicleta id ID #REQUIRED>
+    
+    <!ELEMENT marca (#PCDATA)>
+    <!ELEMENT modelo (#PCDATA)>
+    <!ELEMENT anio (#PCDATA)>
+    <!ELEMENT tipo (#PCDATA)>
+    <!ELEMENT motor (#PCDATA)>
+    <!ELEMENT top_speed (#PCDATA)>
+    <!ELEMENT medio (#PCDATA)>
+    <!ELEMENT descripcion (#PCDATA)>
+]>
+
+<inventario>
+
+    <motocicleta id="k1">
+        <marca>Kawasaki</marca>
+        <modelo>Ninja H2</modelo>
+        <anio>2015</anio>
+        <tipo>Deportiva</tipo>
+        <motor>998 cc (Supercargado)</motor>
+        <top_speed>337 km/h</top_speed>
+        <medio>Vida Real / Videojuegos</medio>
+        <descripcion>Modelo que revolucionó la industria con su inducción forzada por sobrealimentador y su agresiva estética en color verde distintivo.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="k2">
+        <marca>Kawasaki</marca>
+        <modelo>Z900</modelo>
+        <anio>2020</anio>
+        <tipo>Naked</tipo>
+        <motor>948 cc</motor>
+        <top_speed>240 km/h</top_speed>
+        <medio>Vida Real</medio>
+        <descripcion>La reina del segmento naked, famosa por su diseño Sugomi, ágil manejo en curvas y entrega de torque contundente.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="y1">
+        <marca>Yamaha</marca>
+        <modelo>YZF-R1</modelo>
+        <anio>2015</anio>
+        <tipo>Deportiva</tipo>
+        <motor>998 cc (Crossplane)</motor>
+        <top_speed>299 km/h</top_speed>
+        <medio>MotoGP / Videojuegos</medio>
+        <descripcion>Icónica superbike moderna que heredó la gestión electrónica y el cigüeñal Crossplane directamente de la M1 de competencia de Valentino Rossi.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="y2">
+        <marca>Yamaha</marca>
+        <modelo>MT-09</modelo>
+        <anio>2021</anio>
+        <tipo>Hyper Naked</tipo>
+        <motor>890 cc (Tricilíndrico CP3)</motor>
+        <top_speed>225 km/h</top_speed>
+        <medio>Vida Real</medio>
+        <descripcion>Conocida por su chasis ultraligero de aluminio y su motor tricilíndrico que ofrece una agilidad y aceleración inmediata en entornos urbanos.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="h1">
+        <marca>Honda</marca>
+        <modelo>CBR1000RR Fireblade</modelo>
+        <anio>2020</anio>
+        <tipo>Deportiva</tipo>
+        <motor>999 cc</motor>
+        <top_speed>299 km/h</top_speed>
+        <medio>Vida Real / Competencia</medio>
+        <descripcion>La punta de lanza deportiva de Honda, diseñada bajo la filosofía de control total combinando potencia extrema con una fiabilidad absoluta de motor.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="h2">
+        <marca>Honda</marca>
+        <modelo>Gold Wing (GL1800)</modelo>
+        <anio>2018</anio>
+        <tipo>Touring</tipo>
+        <motor>1,833 cc (6 cilindros Boxer)</motor>
+        <top_speed>180 km/h</top_speed>
+        <medio>Vida Real / Turismo</medio>
+        <descripcion>El referente máximo del turismo transcontinental de lujo, equipada con reversa, suspensión delantera de doble horquilla y confort sin igual.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="h3">
+        <marca>Honda</marca>
+        <modelo>Africa Twin (CRF1100L)</modelo>
+        <anio>2020</anio>
+        <tipo>Adventure</tipo>
+        <motor>1,084 cc (Bicilíndrico en paralelo)</motor>
+        <top_speed>199 km/h</top_speed>
+        <medio>Rally Dakar / Cultura Pop</medio>
+        <descripcion>Nacida de la herencia del desierto, es una maxi-trail diseñada para soportar los terrenos más hostiles fuera del camino con absoluta durabilidad.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="s1">
+        <marca>Suzuki</marca>
+        <modelo>GSX1300R Hayabusa</modelo>
+        <anio>1999</anio>
+        <tipo>Hiperdeportiva</tipo>
+        <motor>1,299 cc</motor>
+        <top_speed>312 km/h</top_speed>
+        <medio>Cultura Pop / Récord de Velocidad</medio>
+        <descripcion>La mítica versión original que congeló la guerra de velocidad al coronarse como la motocicleta de producción más rápida del siglo XX.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="s2">
+        <marca>Suzuki</marca>
+        <modelo>GSX-R1000</modelo>
+        <anio>2005</anio>
+        <tipo>Deportiva</tipo>
+        <motor>999 cc</motor>
+        <top_speed>299 km/h</top_speed>
+        <medio>Videojuegos / Circuitos</medio>
+        <descripcion>La aclamada generación 'K5' es recordada en la historia por su inigualable entrega de potencia en bajas revoluciones y su ligereza mecánica.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="d1">
+        <marca>Ducati</marca>
+        <modelo>Panigale V4</modelo>
+        <anio>2018</anio>
+        <tipo>Superbike</tipo>
+        <motor>1,103 cc (Desmosedici Stradale V4)</motor>
+        <top_speed>315 km/h</top_speed>
+        <medio>Cine / Coleccionismo</medio>
+        <descripcion>Una joya del diseño italiano pasional vestida en su característico rojo vivo, entregando tecnología aerodinámica de MotoGP para las calles.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="d2">
+        <marca>Ducati</marca>
+        <modelo>Monster</modelo>
+        <anio>1993</anio>
+        <tipo>Naked</tipo>
+        <motor>904 cc (Bicilíndrico en L Desmodrónico)</motor>
+        <top_speed>210 km/h</top_speed>
+        <medio>Vida Real / Cultura Pop</medio>
+        <descripcion>La obra maestra minimalista de Miguel Galluzzi que dio origen al concepto moderno de motocicleta naked desnudando una moto de carreras.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="b1">
+        <marca>BMW</marca>
+        <modelo>S 1000 RR</modelo>
+        <anio>2019</anio>
+        <tipo>Superbike</tipo>
+        <motor>999 cc (Con sistema ShiftCam)</motor>
+        <top_speed>303 km/h</top_speed>
+        <medio>Videojuegos / Circuitos</medio>
+        <descripcion>La máxima expresión tecnológica alemana en pista, destacando por su asombrosa electrónica adaptativa y sincronización de válvulas variable.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="b2">
+        <marca>BMW</marca>
+        <modelo>R 1300 GS</modelo>
+        <anio>2024</anio>
+        <tipo>Maxi-Trail Adventure</tipo>
+        <motor>1,300 cc (Bóxer)</motor>
+        <top_speed>225 km/h</top_speed>
+        <medio>Vida Real / Expediciones</medio>
+        <descripcion>Lanzada en 2024, introduce una masiva reducción de peso y un rediseño de motor bóxer inferior para mantener su dominio global en aventuras de larga distancia.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="hd1">
+        <marca>Harley-Davidson</marca>
+        <modelo>Fat Boy</modelo>
+        <anio>1991</anio>
+        <tipo>Cruiser</tipo>
+        <motor>1,338 cc (Evolution V-Twin)</motor>
+        <top_speed>160 km/h</top_speed>
+        <medio>Cine (Terminator 2)</medio>
+        <descripcion>Se convirtió en un ícono de la cultura pop global gracias al icónico salto que Arnold Schwarzenegger realizó montado en ella durante el filme.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="hd2">
+        <marca>Harley-Davidson</marca>
+        <modelo>Sportster</modelo>
+        <anio>2021</anio>
+        <tipo>Custom Deportiva</tipo>
+        <motor>1,252 cc (Revolution Max 1250T)</motor>
+        <top_speed>220 km/h</top_speed>
+        <medio>Vida Real</medio>
+        <descripcion>La reinvención radical de la línea Sportster clásica, adoptando refrigeración por líquido e ingeniería moderna sin perder su esencia custom modificable.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="i1">
+        <marca>Indian</marca>
+        <modelo>Scout</modelo>
+        <anio>2015</anio>
+        <tipo>Cruiser</tipo>
+        <motor>1,133 cc (V-Twin refrigerado por agua)</motor>
+        <top_speed>193 km/h</top_speed>
+        <medio>Vida Real / Historia</medio>
+        <descripcion>El renacimiento de una leyenda americana centenaria, combinando una silueta baja y clásica con un motor cruiser moderno de alto desempeño.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="mh1">
+        <marca>Bajaj</marca>
+        <modelo>Pulsar RS200</modelo>
+        <anio>2015</anio>
+        <tipo>Deportiva de Entrada</tipo>
+        <motor>199.5 cc (Triple bujía DTS-i)</motor>
+        <top_speed>141 km/h</top_speed>
+        <medio>Cultura Urbana México</medio>
+        <descripcion>La variante deportiva carenada que conquistó México al equilibrar un look agresivo con un consumo de combustible sumamente contenido y gran accesibilidad.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="mh2">
+        <marca>Bajaj</marca>
+        <modelo>Pulsar NS400Z</modelo>
+        <anio>2024</anio>
+        <tipo>Naked</tipo>
+        <motor>373 cc</motor>
+        <top_speed>154 km/h</top_speed>
+        <medio>Vida Real</medio>
+        <descripcion>La Pulsar de mayor cilindrada en la historia, creada para ofrecer prestaciones de rango medio urbano por una fracción del precio de competidores europeos.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="mh3">
+        <marca>Italika</marca>
+        <modelo>FT150</modelo>
+        <anio>2018</anio>
+        <tipo>Trabajo</tipo>
+        <motor>149 cc</motor>
+        <top_speed>92 km/h</top_speed>
+        <medio>Cultura de Trabajo en México</medio>
+        <descripcion>La innegable reina del asfalto laboral mexicano. Una herramienta de trabajo incansable, económica de mantener y con refacciones hiper accesibles.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="mh4">
+        <marca>Italika</marca>
+        <modelo>250Z</modelo>
+        <anio>2019</anio>
+        <tipo>Naked Urbana</tipo>
+        <motor>250 cc</motor>
+        <top_speed>123 km/h</top_speed>
+        <medio>Cultura Urbana México</medio>
+        <descripcion>La motocicleta insignia de la línea "Z" de Italika, inmensamente popular entre los jóvenes de México debido a su llamativo diseño y prestaciones urbanas.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="mh5">
+        <marca>CFMOTO</marca>
+        <modelo>450NK</modelo>
+        <anio>2023</anio>
+        <tipo>Naked</tipo>
+        <motor>449.5 cc (Bicilíndrico calado a 270°)</motor>
+        <top_speed>178 km/h</top_speed>
+        <medio>Vida Real / Videojuegos</medio>
+        <descripcion>Modelo naked de la revelación asiática que destaca por un motor que emula el rugido y empuje de configuraciones europeas premium.</descripcion>
+    </motocicleta>
+
+    <motocicleta id="mh6">
+        <marca>CFMOTO</marca>
+        <modelo>450SR</modelo>
+        <anio>2023</anio>
+        <tipo>Deportiva Ligera</tipo>
+        <motor>449.5 cc (Bicilíndrico)</motor>
+        <top_speed>190 km/h</top_speed>
+        <medio>Vida Real</medio>
+        <descripcion>Altamente elogiada a nivel mundial por incorporar alerones aerodinámicos funcionales de competencia en una cilindrada e inversión accesibles.</descripcion>
+    </motocicleta>
+
+</inventario>
+
+//Motor y Topspeed añadidos.
