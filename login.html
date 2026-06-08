@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MotoZine Alpha - Acceso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <header>
+    <div class="logo">
+        <h1>MotoZine</h1>
+        <p>Alpha</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="marcas.html">MARCAS</a></li>
+            <li><a href="catalogo.html">CATÁLOGO</a></li>
+            <li><a href="login.html">ACCESO</a></li>
+            <li><a href="documentacion.html">DOCUMENTACIÓN</a></li>
+        </ul>
+    </nav>
+    </header>
+<body>
+
+    <main>
+        <h2>Acceso a Administradores</h2>
+        <form id="loginForm">
+            <label>Usuario:</label> <input type="text" id="username" required><br><br>
+            <label>Contraseña:</label> <input type="password" id="password" required><br><br>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p id="mensaje"></p>
+    </main>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            const msj = document.getElementById('mensaje');
+
+            fetch('usuarios.xml').then(res => res.text()).then(data => {
+                const xmlDoc = new DOMParser().parseFromString(data, "text/xml");
+                const usuarios = xmlDoc.getElementsByTagName('usuario');
+                let valido = false;
+                for (let i = 0; i < usuarios.length; i++) {
+                    if (u === usuarios[i].getElementsByTagName('username')[0].textContent && 
+                        p === usuarios[i].getElementsByTagName('password')[0].textContent) {
+                        valido = true; break;
+                    }
+                }
+                msj.textContent = valido ? "¡Acceso concedido! Bienvenido a MotoZine Alpha." : "Error: Credenciales inválidas.";
+                msj.style.color = valido ? "green" : "red";
+            });
+        });
+    </script>
+
+    <footer>
+    <p>Proyecto Ordinario 2026 | MotoZine Alpha</p>
+    </footer>
+</body>
+    
+    
+    
+</html>
