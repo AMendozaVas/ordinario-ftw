@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MotoZine Alpha - Catálogo Completo</title>
+</head>
+<body>
+
+    <header>
+        <h1>MotoZine Alpha</h1>
+        <p>El catálogo definitivo de motocicletas icónicas y su impacto cultural.</p>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="kawasaki.html">Kawasaki</a></li>
+                <li><a href="honda.html">Honda</a></li>
+                <li><a href="yamaha.html">Yamaha</a></li>
+                <li><a href="ducati.html">Ducati</a></li>
+                <li><a href="harley-davidson.html">Harley-Davidson</a></li>
+                <li><a href="indian.html">Indian</a></li>
+                <li><a href="suzuki.html">Suzuki</a></li>
+                <li><a href="bmw.html">BMW</a></li>
+                <li><a href="menciones.html">Menciones Honoríficas</a></li>
+                <li><a href="catalogo.html">Catálogo Completo</a></li>
+                <br>
+                <li><a href="login.html">Acceso a Usuarios</a></li>
+                <li><a href="documentacion.html">Documentación del Proyecto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <h2>Catálogo de Motocicletas</h2>
+        <p>Explora la base de datos completa, y encuentra tus motos favoritas con los filtros.</p>
+
+        <label for="filtroMarca">Marca: </label>
+        <select id="filtroMarca" onchange="cargarCatalogo()">
+            <option value="todas">Todas</option>
+            <option value="Kawasaki">Kawasaki</option>
+            <option value="Honda">Honda</option>
+            <option value="Yamaha">Yamaha</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Ducati">Ducati</option>
+            <option value="BMW">BMW</option>
+            <option value="Harley-Davidson">Harley-Davidson</option>
+            <option value="Indian">Indian</option>
+            <option value="Bajaj">Bajaj</option>
+            <option value="Italika">Italika</option>
+            <option value="CFMOTO">CFMOTO</option>
+        </select>
+
+        <label for="filtroTipo" style="margin-left: 15px;">Tipo: </label>
+        <select id="filtroTipo" onchange="cargarCatalogo()">
+            <option value="todos">Todos los tipos</option>
+            <option value="Deportiva">Deportiva / Superbike</option>
+            <option value="Naked">Naked</option>
+            <option value="Cruiser">Cruiser / Custom</option>
+            <option value="Adventure">Adventure / Touring</option>
+            <option value="Trabajo">Trabajo</option>
+        </select>
+
+        <br><br>
+
+        <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; text-align: left;">
+            <thead>
+                <tr>
+                    <th>Marca</th><th>Modelo</th><th>Año</th><th>Motor</th><th>Top Speed</th><th>Tipo</th><th>Aparición</th>
+                </tr>
+            </thead>
+            <tbody id="tablaCuerpo"></tbody>
+        </table>
+    </main>
+
+    <hr>
+    <footer><p>Proyecto Ordinario 2026 | Versión Alpha 0.5 (Doble Filtro)</p></footer>
+
+    <script>
+        function cargarCatalogo() {
+            const marcaSel = document.getElementById('filtroMarca').value;
+            const tipoSel = document.getElementById('filtroTipo').value;
+            const cuerpoTabla = document.getElementById('tablaCuerpo');
+            cuerpoTabla.innerHTML = "";
+
+            fetch('inventario.xml')
+                .then(res => res.text())
+                .then(xml => {
+                    const xmlDoc = new DOMParser().parseFromString(xml, "text/xml");
+                    const motos = xmlDoc.getElementsByTagName('motocicleta');
+
+                    for (let i = 0; i < motos.length; i++) {
+                        const marca = motos[i].getElementsByTagName('marca')[0].textContent;
+                        const tipo = motos[i].getElementsByTagName('tipo')[0].textContent;
+                        
+                        // Lógica de doble filtro (Incluye validación parcial para los tipos)
+                        const coincideMarca = (marcaSel === "todas" || marca === marcaSel);
+                        const coincideTipo = (tipoSel === "todos" || tipo.toLowerCase().includes(tipoSel.toLowerCase()));
+
+                        if (coincideMarca && coincideTipo) {
+                            const modelo = motos[i].getElementsByTagName('modelo')[0].textContent;
+                            const anio = motos[i].getElementsByTagName('anio')[0].textContent;
+                            const motor = motos[i].getElementsByTagName('motor')[0].textContent;
+                            const velocidad = motos[i].getElementsByTagName('top_speed')[0].textContent;
+                            const medio = motos[i].getElementsByTagName('medio')[0].textContent;
+
+                            const fila = document.createElement('tr');
+                            fila.innerHTML = `<td>${marca}</td><td><strong>${modelo}</strong></td><td>${anio}</td><td>${motor}</td><td>${velocidad}</td><td>${tipo}</td><td>${medio}</td>`;
+                            cuerpoTabla.appendChild(fila);
+                        }
+                    }
+                });
+        }
+        document.addEventListener('DOMContentLoaded', cargarCatalogo);
+    </script>
+</body>
+</html>

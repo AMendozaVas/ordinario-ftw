@@ -258,6 +258,17 @@
         <descripcion>Altamente elogiada a nivel mundial por incorporar alerones aerodinámicos funcionales de competencia en una cilindrada e inversión accesibles.</descripcion>
     </motocicleta>
 
+    <motocicleta id="mh7">
+        <marca>BMW</marca>
+        <modelo>Akira's Bike (Custom de Kaneda)</modelo>
+        <anio>2019</anio>
+        <tipo>Cruiser Urbana</tipo>
+        <motor>1000 cc (Generador Híbrido)</motor>
+        <top_speed>243 km/h</top_speed>
+        <medio>Cine / Anime (Akira)</medio>
+        <descripcion>La legendaria motocicleta roja de Kaneda. Un ícono absoluto del cyberpunk con diseño aerodinámico, tracción en ambas ruedas y estética inconfundible.</descripcion>
+    </motocicleta>
+
 </inventario>
 
 //Motor y Topspeed añadidos.
